@@ -14,7 +14,7 @@ import { User } from '../users/entities/user.entity';
         host: config.get('DB_HOST', 'localhost'),
         port: config.get('DB_PORT', 3306),
         username: config.get('DB_USERNAME', 'root'),
-        password: config.get('DB_PASSWORD', 'avnil236'),
+        password: config.get('DB_PASSWORD', 'yourpassword'),
         database: config.get('DB_DATABASE', 'support_ticket_system'),
         autoLoadEntities: true,
         synchronize: true,
