@@ -9,16 +9,13 @@ import { User } from '../users/entities/user.entity';
   imports: [
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
+      useFactory: (config: ConfigService) => ({
         type: 'mysql',
-        host: configService.get<string>('DB_HOST', 'localhost'),
-        port: configService.get<number>('DB_PORT', 3306),
-        username: configService.get<string>('DB_USERNAME', 'root'),
-        password: configService.get<string>('DB_PASSWORD', 'avnil236'),
-        database: configService.get<string>(
-          'DB_DATABASE',
-          'support_ticket_system',
-        ),
+        host: config.get('DB_HOST', 'localhost'),
+        port: config.get('DB_PORT', 3306),
+        username: config.get('DB_USERNAME', 'root'),
+        password: config.get('DB_PASSWORD', 'avnil236'),
+        database: config.get('DB_DATABASE', 'support_ticket_system'),
         autoLoadEntities: true,
         synchronize: true,
       }),
@@ -28,4 +25,4 @@ import { User } from '../users/entities/user.entity';
   ],
   providers: [Seeder],
 })
-export class DatabaseModule {}
+export class DatabaseModule { }
